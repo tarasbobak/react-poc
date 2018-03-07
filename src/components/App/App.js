@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 import logo from '../../logo.svg';
+import Home from '../Home/Home';
+import Feedback from '../Feedback/Feedback';
 import './App.css';
 
 class App extends Component {
@@ -8,11 +11,14 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to React-POC</h1>
+          <Link to="/" className="App-header-link">Home</Link>
+          <Link to="/feedback" className="App-header-link">Feedback</Link>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <main>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/feedback" component={Feedback} />
+        </main>
       </div>
     );
   }

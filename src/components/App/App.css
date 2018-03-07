@@ -14,12 +14,13 @@
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.App-header-link {
+  display: inline-block;
+  padding: 5px 10px;
 }
 
-.App-intro {
-  font-size: large;
+.App-title {
+  font-size: 1.5em;
 }
 
 @keyframes App-logo-spin {
