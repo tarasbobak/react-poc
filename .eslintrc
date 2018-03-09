@@ -3,5 +3,13 @@
   "env": {
     "browser": true,
     "node": true
+  },
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "jsx-a11y/anchor-is-valid": ["error", {
+      "components": ["Link"],
+      "specialLink": ["to"]
+    }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
