@@ -13,8 +13,9 @@ const CN = 'signup-form';
 export default class SignupForm extends Component {
   
   buildForm() {
-    return ({ isSubmitting, isValid }) => (
-      <Form>
+    console.log(this)
+    return ({ isSubmitting, isValid, values, errors, touched }) => (
+      <Form noValidate>
         <div className="form-group row">
           <label htmlFor="email">Enter your email</label>
           <Field
@@ -23,6 +24,7 @@ export default class SignupForm extends Component {
             className="form-control"
             id="email"
             placeholder="Email"/>
+          {touched.email && errors.email && this.invalidFeedback(errors.email)}
         </div>
         <div className="form-group row">
           <label htmlFor="password"> Enter your password</label>
@@ -32,15 +34,31 @@ export default class SignupForm extends Component {
             className="form-control"
             id="password"
             placeholder="Password"/>
+          {touched.password && errors.password && this.invalidFeedback(errors.password)}
         </div>
-        <div className="form-check">
+        <div className="form-check row">
           <Field
             type="checkbox"
             name="newsletters"
             className="form-check-input"
             id="newsletters"
-            placeholder="Password"/>
+            placeholder="Password"
+            checked={values.newsletters}
+          />
           <label htmlFor="newsletters"> Signup for news letters</label>
+        </div>
+        <div className="form-group row">
+          <label htmlFor="plan"> Choose your personal plan</label>
+          <Field
+            component="select"
+            name="plan"
+            className="form-control"
+            id="plan"
+          >
+            <option value="free">Free</option>
+            <option value="premium">Premium</option>
+            <option value="gold">Gold</option>
+          </Field>
         </div>
         <button
           type="submit"
@@ -48,26 +66,49 @@ export default class SignupForm extends Component {
           disabled={isSubmitting}>
           Submit
         </button>
-        {console.log({ isSubmitting, isValid })}
       </Form>
     );
   }
   
-  handleSubmit(values) {
-    console.log(values);
+  getValidationSchema() {
+    return Yup.object().shape({
+      email: Yup.string().required('Email is required').email('Email must be valid and contain `@` symbol'),
+      password: Yup.string()
+        .required('Password is required')
+        .min(9, 'Password must be 9 characters or longer ')
+        .matches(/[A-Z]/,'Password should contain at least one capital character')
+    })
+  }
+  
+  handleSubmit(values,{resetForm}) {
+    console.log(values, 'Submitted');
+    resetForm();
+  }
+  
+  invalidFeedback(msg) {
+    return (
+      <div className={cx(`${CN}--invalid`)}>{msg}</div>
+    )
   }
   
   render() {
     const { className } = this.props;
     return (
       <div className={cx(CN, className)}>
-        <h2>Sign up our cool newsletters</h2>
+        <h2>Sign up to our cool newsletters</h2>
         <Formik
           initialValues={
-            { password: '', email: '', newsletters: '' }
+            {
+              password: '',
+              email: '',
+              newsletters: '' || true,
+              plan: 'premium'
+            }
           }
           onSubmit={this.handleSubmit}
+          validationSchema={this.getValidationSchema()}
           render={this.buildForm()}
+        
         />
       </div>);
   }
