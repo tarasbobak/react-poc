@@ -5,11 +5,13 @@
     "node": true
   },
   "rules": {
+    "class-methods-use-this": ["off"],
     "comma-dangle": ["error", "never"],
     "jsx-a11y/anchor-is-valid": ["error", {
       "components": ["Link"],
       "specialLink": ["to"]
     }],
+    "max-len": ["error", { "code": 80 }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
