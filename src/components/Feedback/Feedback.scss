@@ -1,0 +1,25 @@
+.person-form{
+  width: 40%;
+  text-align: left;
+
+  .form-group, .radio-group, .check-group, .select-group{
+    display: block;
+    padding: 10px;
+
+    label{
+      display: inline-block;
+      padding:10px;
+    }
+
+    .textarea, button{
+      display: block;
+      padding-right: 30px;
+    }
+
+    .question{
+      margin-right: 10px;
+    }
+
+  }
+
+}
