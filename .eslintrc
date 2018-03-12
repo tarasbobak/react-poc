@@ -10,7 +10,6 @@
       "components": ["Link"],
       "specialLink": ["to"]
     }],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "class-methods-use-this": ["error"]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
