@@ -65,7 +65,7 @@ class ReactForm extends Component { // eslint-disable-line
 
     this.handleChange = this.handleChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
-    this.resetForm = this.resetForm.bind(this);
+    // this.resetForm = this.resetForm.bind(this);
   }
 
   submitForm(data) {// eslint-disable-line
@@ -80,22 +80,18 @@ class ReactForm extends Component { // eslint-disable-line
     this.setState({ formData });
   }
 
-  resetForm() {// eslint-disable-line
-    this.areaForm.reset();
-  }
-
 
   render() {
     return (
       <div>
         <h1>React-form</h1>
 
-        <Form onSubmit={this.submitForm}>
+        <Form onSubmit={this.submitForm} ref={(event) => { this.areaForm = event; }} >
           {formApi => (
             <form
               className="person-form"
               onSubmit={formApi.submitForm}
-              ref={(event) => { this.areaForm = event; }}// eslint-disable-line
+              ref="form"// eslint-disable-line
             >
               <div className="form-group">
                 <label htmlFor="text-input-firstName">First name</label>
@@ -187,7 +183,6 @@ class ReactForm extends Component { // eslint-disable-line
               </div>
 
               <button type="submit">Submit</button>
-              <button onClick={this.resetForm}>Reset</button>
             </form>
           )}
         </Form>

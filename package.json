@@ -14,7 +14,11 @@
     "react-datepicker": "^1.2.2",
     "react-dom": "^16.2.0",
     "react-form": "^3.3.2",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "simple-react-forms": "^1.5.0",
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
