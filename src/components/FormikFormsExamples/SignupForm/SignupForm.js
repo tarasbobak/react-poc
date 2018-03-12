@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { Component } from 'react';
 import cx from 'classnames';
 import { Formik, Form, Field } from 'formik';
@@ -11,10 +10,19 @@ const CN = 'signup-form';
 
 
 export default class SignupForm extends Component {
-  
+  getValidationSchema() { // eslint-disable-line
+    return Yup.object().shape({
+      email: Yup.string().required('Email is required').email('Email must be valid and contain `@` symbol'),
+      password: Yup.string()
+        .required('Password is required')
+        .min(9, 'Password must be 9 characters or longer ')
+        .matches(/[A-Z]/, 'Password should contain at least one capital character')
+    });
+  }
   buildForm() {
-    console.log(this)
-    return ({ isSubmitting, isValid, values, errors, touched }) => (
+    return ({
+      isSubmitting, values, errors, touched
+    }) => (
       <Form noValidate>
         <div className="form-group row">
           <label htmlFor="email">Enter your email</label>
@@ -23,7 +31,8 @@ export default class SignupForm extends Component {
             name="email"
             className="form-control"
             id="email"
-            placeholder="Email"/>
+            placeholder="Email"
+          />
           {touched.email && errors.email && this.invalidFeedback(errors.email)}
         </div>
         <div className="form-group row">
@@ -33,7 +42,8 @@ export default class SignupForm extends Component {
             name="password"
             className="form-control"
             id="password"
-            placeholder="Password"/>
+            placeholder="Password"
+          />
           {touched.password && errors.password && this.invalidFeedback(errors.password)}
         </div>
         <div className="form-check row">
@@ -63,34 +73,22 @@ export default class SignupForm extends Component {
         <button
           type="submit"
           className="btn btn-primary"
-          disabled={isSubmitting}>
+          disabled={isSubmitting}
+        >
           Submit
         </button>
       </Form>
     );
   }
-  
-  getValidationSchema() {
-    return Yup.object().shape({
-      email: Yup.string().required('Email is required').email('Email must be valid and contain `@` symbol'),
-      password: Yup.string()
-        .required('Password is required')
-        .min(9, 'Password must be 9 characters or longer ')
-        .matches(/[A-Z]/,'Password should contain at least one capital character')
-    })
-  }
-  
-  handleSubmit(values,{resetForm}) {
-    console.log(values, 'Submitted');
+  handleSubmit(values, { resetForm }) {// eslint-disable-line
+    console.info(values); // eslint-disable-line
     resetForm();
   }
-  
-  invalidFeedback(msg) {
+  invalidFeedback(msg) {// eslint-disable-line
     return (
       <div className={cx(`${CN}--invalid`)}>{msg}</div>
-    )
+    );
   }
-  
   render() {
     const { className } = this.props;
     return (
@@ -108,7 +106,6 @@ export default class SignupForm extends Component {
           onSubmit={this.handleSubmit}
           validationSchema={this.getValidationSchema()}
           render={this.buildForm()}
-        
         />
       </div>);
   }
