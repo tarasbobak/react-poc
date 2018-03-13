@@ -9,7 +9,10 @@ export default function withWire(WrappedComponent, dependencies, mapper) {
     const resolved = dependencies.map(dep => context.get(dep));
     const resolvedProps = mapper(...resolved);
 
-    return React.createElement(WrappedComponent, resolvedProps);
+    return React.createElement(WrappedComponent, {
+      ...props,
+      ...resolvedProps
+    });
   }
 
   WithWire.displayName = `withWire(${componentName})`;
