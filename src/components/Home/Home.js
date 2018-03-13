@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CounterContainer from './CounterContainer/CounterContainer';
+import withWire from '../common/hocs/withWire';
 import './Home.scss';
 
-function Home() {
+function Home(props) {
   return (
     <div>
       <h1>This is home page</h1>
@@ -12,9 +14,18 @@ function Home() {
         <div className="col-6 col-sm-6">.col-6 .col-sm-6</div>
         <div className="col-6 col-sm-3">.col-6 .col-sm-3</div>
       </div>
+      <h3>{props.dumbService.getHelloPhrase()}</h3>
       <CounterContainer />
     </div>
   );
 }
 
-export default Home;
+Home.propTypes = {
+  dumbService: PropTypes.shape({
+    getHelloPhrase: PropTypes.func
+  }).isRequired
+};
+
+export default withWire(Home, ['dumbService'], dumbService => (
+  { dumbService }
+));
