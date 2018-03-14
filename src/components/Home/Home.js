@@ -4,6 +4,7 @@ import CounterContainer from './CounterContainer/CounterContainer';
 import withWire from '../common/hocs/withWire';
 import appConfig from '../../config/appConfig';
 import './Home.scss';
+import Users from '../Users/Users';
 
 function Home(props) {
   return (
@@ -18,6 +19,9 @@ function Home(props) {
       <h3>{props.dumbService.getHelloPhrase()}</h3>
       <h3>From config: {appConfig.baseUrl}</h3>
       <CounterContainer />
+      <div className="row row-center">
+        <Users />
+      </div>
     </div>
   );
 }
