@@ -1,5 +1,5 @@
 class DumbService {
-  getHelloPhrase() {
+  getHelloPhrase() { // eslint-disable-line
     return 'Hello from service';
   }
 }
