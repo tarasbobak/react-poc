@@ -1,15 +1,14 @@
 .signup-form {
+  text-align: left;
   padding: 40px;
   max-width: 400px;
 
-  & &--invalid {
-    text-align: left;
-    display: block;
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-    color: #dc3545;
-    background-color: white;
+  h2 {
+    text-align: center;
+  }
+
+  &--reset-btn {
+    margin-right: 20px;
   }
 
 }
