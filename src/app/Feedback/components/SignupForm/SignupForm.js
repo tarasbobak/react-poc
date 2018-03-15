@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { Formik, Form, Field } from 'formik';
 import PropTypes from 'prop-types';
 import Yup from 'yup';
-import InputFeedback from '../InputFeedback/InputFeedback';
+import InputFeedback from './InputFeedback/InputFeedback';
 import './SignupForm.scss';
 
 const CN = 'signup-form';
