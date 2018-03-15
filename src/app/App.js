@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
-import logo from '../../logo.svg';
-import Home from '../Home/Home';
-import Feedback from '../Feedback/Feedback';
+import logo from '../logo.svg';
+import Home from './Home/Home';
+import Feedback from './Feedback/Feedback';
 import dependencies, { registerDependencies } from './dependencies';
 import './App.scss';
 

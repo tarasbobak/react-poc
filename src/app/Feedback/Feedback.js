@@ -1,5 +1,5 @@
 import React from 'react';
-import SignupForm from '../FormikFormsExamples/SignupForm';
+import SignupForm from './components/SignupForm/SignupForm';
 import './Feedback.scss';
 
 function Feedback() {
