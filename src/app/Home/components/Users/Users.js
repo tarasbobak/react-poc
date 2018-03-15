@@ -5,8 +5,8 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import withWire from '../common/hocs/withWire';
 import './Users.scss';
+import withWire from '../../../common/hocs/withWire';
 
 class Users extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Users extends Component {
   }
 
   componentDidMount() {
-    this.props.dataService.getPopularRepositories()
+    this.props.usersApiService.getPopularRepositories()
       .then((users) => {
         this.setState({ users });
       });
@@ -38,13 +38,13 @@ class Users extends Component {
 }
 
 Users.propTypes = {
-  dataService: PropTypes.shape({
+  usersApiService: PropTypes.shape({
     getPopularRepositories: PropTypes.func
   }).isRequired
 };
 
 export default withWire(
   Users,
-  ['dataService'],
-  dataService => ({ dataService })
+  ['usersApiService'],
+  usersApiService => ({ usersApiService })
 );

@@ -1,0 +1,19 @@
+h1 {
+  margin: 10px 0 30px;
+}
+
+.row {
+  margin-bottom: 30px;
+}
+
+.row > div {
+  padding: 10px;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  background-color: #cabebe;
+}
+
+.row-center {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -6,19 +6,16 @@
 
 import axios from 'axios';
 
-class httpService {
+class HttpService {
   get(url, options) {
-    axios.get(url, options)
-      .then((response) => {
-        console.log(response);
-      })
+    return axios.get(url, options)
       .catch((error) => {
         console.log(error);
       });
   }
 
   post(url, data, options) {
-    axios.post(url, data, options)
+    return axios.post(url, data, options)
       .then((response) => {
         console.log(response);
       })
@@ -62,6 +59,8 @@ const user = {
   birthday: new Date()
 };
 
+const httpService = new HttpService();
+
 httpService.get('https://api.github.com/users/codeheaven-io', config);
 httpService.post('/save', user, config);
 httpService.put('https://api.github.com/users', user);
@@ -78,4 +77,4 @@ const instanceConfig = {
 httpService.create(instanceConfig);
 
 
-export default httpService;
+export default HttpService;

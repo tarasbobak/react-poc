@@ -3,10 +3,10 @@ import Counter from './Counter/Counter';
 import {
   incrementCounter,
   resetCounter
-} from '../../../actions/counterActions';
+} from '../../homeActions';
 
 const mapStateToProps = state => ({
-  counter: state.counter
+  counter: state.home.counter
 });
 
 const mapDispatchToProps = dispatch => ({
