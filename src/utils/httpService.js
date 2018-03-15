@@ -45,6 +45,7 @@ class HttpService {
   }
 }
 
+/**
 const config = {
   headers: {
     'X-My-Custom-Header': 'Header-Value',
@@ -75,6 +76,7 @@ const instanceConfig = {
 };
 
 httpService.create(instanceConfig);
+*/
 
 
 export default HttpService;
