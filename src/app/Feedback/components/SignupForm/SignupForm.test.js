@@ -34,7 +34,6 @@ describe('Test header component to render properly with properties', () => {
     expect(tree).toMatchSnapshot();
   });
 
-
   it('first child form must be `<h2/>`', () => {
     expect(
       wrapper.childAt(0).type()
