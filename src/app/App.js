@@ -5,7 +5,7 @@ import logo from '../logo.svg';
 import Home from './Home/Home';
 import Feedback from './Feedback/Feedback';
 import dependencies, { registerDependencies } from './dependencies';
-import './App.scss';
+import styles from './App.scss';
 
 class App extends Component {
   constructor(props) {
@@ -17,12 +17,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React-POC</h1>
-          <Link to="/" className="App-header-link">Home</Link>
-          <Link to="/feedback" className="App-header-link">Feedback</Link>
+      <div className={styles.App}>
+        <header className={styles.header}>
+          <img src={logo} className={styles.logo} alt="logo" />
+          <h1 className={styles.title}>Welcome to React-POC</h1>
+          <Link to="/" className={styles['header-link']}>Home</Link>
+          <Link to="/feedback" className={styles['header-link']}>
+            Feedback
+          </Link>
         </header>
         <main>
           <Route exact path="/" component={Home} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
-import './Wizard.scss';
+import styles from './Wizard.scss';
 
 class Wizard extends React.Component {
   static Page({ children }) {
@@ -86,7 +86,7 @@ class Wizard extends React.Component {
               )}
             </div>
 
-            <pre className="form-state-preview">
+            <pre className={styles['form-state-preview']}>
               <code>{JSON.stringify(values, null, 4)}</code>
             </pre>
           </form>

@@ -4,9 +4,9 @@ import { Formik, Form, Field } from 'formik';
 import PropTypes from 'prop-types';
 import Yup from 'yup';
 import InputFeedback from './InputFeedback/InputFeedback';
-import './SignupForm.scss';
+import styles from './SignupForm.scss';
 
-const CN = 'signup-form';
+const CN = styles['signup-form'];
 
 const VALIDATION_SCHEMA = Yup.object().shape({
   email: Yup.string()

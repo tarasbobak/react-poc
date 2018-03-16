@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Users.scss';
+import styles from './Users.scss';
 import withWire from '../../../common/hocs/withWire';
 
 class Users extends Component {
@@ -25,13 +25,15 @@ class Users extends Component {
 
   render() {
     return this.state.users.map(user => (
-      <div className="users-list__user" key={Number(user.id)}>
+      <div className={styles.user} key={Number(user.id)}>
         <img
           src={user.avatar_url}
           alt={user.login}
-          className="user-image__avatar"
+          className={styles.avatar}
         />
-        <li key={Number(user.id)} className="users-list">{user.login}</li>
+        <li key={Number(user.id)} className={styles['users-list']}>
+          {user.login}
+        </li>
       </div>
     ));
   }

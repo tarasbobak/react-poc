@@ -1,9 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import './InputFeedback.scss';
+import styles from './InputFeedback.scss';
 
-const CN = 'invalid-feedback';
+const CN = styles['invalid-feedback'];
 
 function InputFeedback(props) {
   const { error, className } = props;
