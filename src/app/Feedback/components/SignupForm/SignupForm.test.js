@@ -12,15 +12,15 @@ describe('Test header component to render properly with properties', () => {
 
   beforeEach(() => {
     props = {
-      handleSubmit: () => {
-      }
+      handleSubmit: () => {},
+      buildForm: () => {}
     };
     wrapper = shallow(<SignupForm {...props} />);
   });
 
   it('should be rendered properly with different properties', () => {
     const tree = renderer.create(
-      <SignupForm onSubmit={() => {}} />
+      <SignupForm onSubmit={() => {}} render={() => {}} />
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -34,10 +34,36 @@ describe('Test header component to render properly with properties', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('onSubmit attribute should be of type `function`', () => {
+
+  it('first child form must be `<h2/>`', () => {
     expect(
-      typeof wrapper.props().onSubmit === 'function'
-    ).toBe(true);
+      wrapper.childAt(0).type()
+    ).toBe('h2');
   });
+
+  it('onSubmit method should be defined', () => {
+    expect(
+      wrapper.childAt(1).props().onSubmit
+    ).toBeDefined();
+  });
+
+  it('render method should be defined', () => {
+    expect(
+      wrapper.childAt(1).props().render
+    ).toBeDefined();
+  });
+
+  it('onSubmit method should be defined', () => {
+    expect(
+      wrapper.childAt(1).props().onSubmit
+    ).toBeDefined();
+  });
+
+  it('SignupForm component must have 2 children', () => {
+    expect(
+      wrapper.children().length
+    ).toBe(2);
+  });
+
 });
 
