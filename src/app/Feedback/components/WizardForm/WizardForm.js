@@ -4,7 +4,6 @@ import Wizard from './Wizard/Wizard';
 import WizardFormError from './WizardFormError/WizardFormError';
 
 function WizardForm() {
-  const required = value => (value ? undefined : 'Required');
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
   return (
@@ -23,7 +22,18 @@ function WizardForm() {
           });
         }}
       >
-        <Wizard.Page>
+        <Wizard.Page
+          validate={(values) => {
+            const errors = {};
+            if (!values.firstName) {
+              errors.firstName = 'Required';
+            }
+            if (!values.lastName) {
+              errors.lastName = 'Required';
+            }
+            return errors;
+          }}
+        >
           <div className="form-group row">
             <label htmlFor="firstName">First Name</label>
             <Field
@@ -32,7 +42,6 @@ function WizardForm() {
               component="input"
               type="text"
               placeholder="First Name"
-              validate={required}
             />
             <WizardFormError name="firstName" />
           </div>
@@ -44,7 +53,6 @@ function WizardForm() {
               component="input"
               type="text"
               placeholder="Last Name"
-              validate={required}
             />
             <WizardFormError name="lastName" />
           </div>
