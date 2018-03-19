@@ -5,12 +5,33 @@
  */
 
 import axios from 'axios';
+import dependencies from '../../src/app/dependencies';
 
 class HttpService {
+  constructor() {
+    window.onerror = function (message, file, line) {
+      this.logger.log({
+        context: navigator.userAgent,
+        error: message,
+        file,
+        line
+      });
+    };
+  }
+
   get(url, options) {
-    return axios.get(url, options)
+    this.logger.info('Retrieving data - started');
+    axios.get(url, options)
+      .then((response) => {
+        this.logger.info(`Retrieving data - completed: 
+        ${this.constructor.name} HTTP request executed`);
+        return response.data;
+      })
       .catch((error) => {
+        this.logger.error(`Retrieving data - failed:
+        ${this.constructor.name}${error}HTTP request rejected`);
         console.log(error);
+        return Promise.reject(error);
       });
   }
 
@@ -42,6 +63,10 @@ class HttpService {
 
   create(options) {
     axios.create(options);
+  }
+
+  get logger() {
+    return dependencies.get('loggerService');
   }
 }
 
