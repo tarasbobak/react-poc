@@ -17,6 +17,7 @@ function Home(props) {
         <div className="col-6 col-sm-3">.col-6 .col-sm-3</div>
       </div>
       <h3>{props.dumbService.getHelloPhrase()}</h3>
+      <h3>{props.greetingService.writeGreet()}</h3>
       <h3>From config: {appConfig.baseUrl}</h3>
       <CounterContainer />
       <div className="row row-center">
@@ -29,9 +30,16 @@ function Home(props) {
 Home.propTypes = {
   dumbService: PropTypes.shape({
     getHelloPhrase: PropTypes.func
+  }).isRequired,
+  greetingService: PropTypes.shape({
+    writeGreet: PropTypes.func
   }).isRequired
 };
 
-export default withWire(Home, ['dumbService'], dumbService => (
-  { dumbService }
-));
+export default withWire(
+  Home,
+  ['dumbService', 'greetingService'],
+  (dumbService, greetingService) => (
+    { dumbService, greetingService }
+  )
+);
