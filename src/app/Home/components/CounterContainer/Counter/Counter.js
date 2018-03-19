@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Counter.scss';
+import styles from './Counter.scss';
 
 function Counter(props) {
   return (
-    <div className="counter-container">
+    <div className={styles['counter-container']}>
       <h3>{props.counter}</h3>
       <button onClick={props.onIncrementCounter}>Increment</button>
       <button onClick={props.onResetCounter}>Reset</button>

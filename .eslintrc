@@ -2,8 +2,12 @@
   "extends": "airbnb",
   "env": {
     "browser": true,
-    "node": true,
-    "jest": true
+    "jest": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
   },
   "rules": {
     "class-methods-use-this": ["off"],
