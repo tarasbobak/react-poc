@@ -6,6 +6,8 @@ import logo from '../assets/logo.svg';
 import Home from './Home/Home';
 import Feedback from './Feedback/Feedback';
 import NotFound from './NotFound';
+import NotificationContainer
+  from './common/components/NotificationContainer/NotificationContainer';
 import dependencies, { registerDependencies } from './dependencies';
 import styles from './App.scss';
 
@@ -35,6 +37,7 @@ class App extends Component {
             <Route path="*" component={NotFound} />
           </Switch>
         </main>
+        <NotificationContainer />
       </div>
     );
   }
