@@ -1,0 +1,15 @@
+{
+  "extends": ["tslint:recommended", "tslint-react"],
+  "rules": {
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "member-ordering": false,
+    "quotemark": [true, "single", "jsx-double"],
+    "trailing-comma": false,
+    "arrow-parens": false
+  },
+  "linterOptions": {
+    "exclude": ["src/serviceWorker.ts"]
+  }
+}
