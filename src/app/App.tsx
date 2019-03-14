@@ -3,6 +3,7 @@ import logo from '../assets/logo.svg';
 import Home from './Home/Home';
 import Feedback from './Feedback/Feedback';
 import NotFound from './NotFound';
+import TodoListContainer from './Todo/TodosListContainer';
 import styles from './App.module.scss';
 import { Router, Link } from '@reach/router';
 
@@ -26,6 +27,7 @@ class App extends Component {
           <Router>
             <Home path="/" />
             <Feedback path="/feedback" />
+            <TodoListContainer path="/todo" />
             <NotFound path="*" />
           </Router>
         </main>

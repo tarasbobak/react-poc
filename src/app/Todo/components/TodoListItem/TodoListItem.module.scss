@@ -1,0 +1,51 @@
+.category-card-wrapper {
+    display: flex;
+    align-items: center;
+    width: 340px;
+    margin: 10px 0;
+    border: 2px solid transparent;
+    padding: 10px 0;
+    position: relative;
+  
+    .card-actions-wrapper {
+      display: flex;
+      flex-direction: column;
+      font-size: 30px;
+
+      button {
+        min-width: 60px;
+
+        &:last-child {
+          margin-top: 5px;
+        }
+      }
+    }
+  
+    h5 {
+      background-color: #bdb374;
+      box-shadow: 3px 3px 5px
+    }
+  
+    .card-content {
+      h3 {
+        font-size: 22px;
+        margin: 0 0 10px 0;
+      }
+  
+      p {
+        font-size: 16px;
+      }
+    }
+  
+    &.in-progress {
+      border-color: #63b163;
+  
+      .card-icon {
+        color: #63b163;
+      }
+  
+      h5 {
+        background-color: #95d295;
+      }
+    }
+}
