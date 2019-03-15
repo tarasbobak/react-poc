@@ -48,4 +48,10 @@
         background-color: #95d295;
       }
     }
+
+    &.completed {
+      border-color: lightgray;
+      background-color: lightgray;
+      opacity: .5;
+    }
 }

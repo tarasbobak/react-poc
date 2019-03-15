@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TodosList from './TodosList';
-import { addTodo } from '../../actionCreators/todoActions';
+import { addTodo, removeTodo, completeTodo } from '../../actionCreators/todoActions';
 
 const mapStateToProps = (state: any) => ({
   todos: state.todo.todos
@@ -9,6 +9,12 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: any) => ({
   onAddTodo: (todoItem: { label: string }) => {
     dispatch(addTodo(todoItem));
+  },
+  onCompleteTodo: (id: number) => {
+    dispatch(completeTodo(id));
+  },
+  onRemoveTodo: (id: number) => {
+    dispatch(removeTodo(id));
   }
 });
 
